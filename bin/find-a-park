@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
-puts "Heyyyyy"
+require './lib/find_a_park'
+
+FindAPark::CLI.new.call

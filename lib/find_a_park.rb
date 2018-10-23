@@ -1,5 +1,2 @@
-require "find_a_park/version"
-
-module FindAPark
-  # Your code goes here...
-end
+require_relative "./find_a_park/version"
+require_relative './find_a_park/cli'
