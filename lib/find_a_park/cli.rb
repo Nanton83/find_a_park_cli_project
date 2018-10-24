@@ -11,6 +11,7 @@ class FindAPark::CLI
 
   def lists_states
     puts "We will show parks by state."
+    @state = FindAPark::State.all
   end
 
   def user_selection
