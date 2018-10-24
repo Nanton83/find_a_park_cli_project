@@ -7,8 +7,6 @@ class FindAPark::State
       puts "States go here"
       state = self.new
       state.name = "North Carolina"
-      state.parks = ["Blue Ridge", "Cape Lookout"]
-
     end
 
 end
