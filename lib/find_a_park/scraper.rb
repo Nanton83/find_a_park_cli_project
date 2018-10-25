@@ -5,6 +5,8 @@ class FindAPark::Scraper
     Nokogiri::HTML(open("https://www.nps.gov/findapark/index.htm"))
   end
 
+end
+
 #each state is here:
 #<div id="nationalMap-map">
 #<map name="Map" id="Map">
