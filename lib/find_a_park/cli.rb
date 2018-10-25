@@ -27,7 +27,7 @@ class FindAPark::CLI
       when "states"
         lists_states
       else
-        puts "Didn't quite unstand that"
+        puts "Didn't quite understand that"
       end
     end
   end
