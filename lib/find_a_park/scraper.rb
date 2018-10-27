@@ -1,7 +1,8 @@
 
 class FindAPark::Scraper
 
-  def whole_page
+  def self.whole_page
+
     Nokogiri::HTML(open("https://www.nps.gov/findapark/index.htm"))
   end
 
