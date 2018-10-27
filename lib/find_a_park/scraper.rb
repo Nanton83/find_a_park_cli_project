@@ -6,8 +6,17 @@ class FindAPark::Scraper
   end
 
   def self.states_for_days
-    self.whole_page.css('div#nationalMap-map')
+    self.whole_page.css('form#simpleStateForm').text
   end
+
+  def self.list_each_state
+    @states = []
+    self.states_for_days.each do |state|
+      @states << state
+    end
+    @states
+  end
+
 
 end
 
