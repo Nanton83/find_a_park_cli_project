@@ -2,8 +2,11 @@
 class FindAPark::Scraper
 
   def self.whole_page
-
     Nokogiri::HTML(open("https://www.nps.gov/findapark/index.htm"))
+  end
+
+  def self.states_for_days
+    self.whole_page.css('div#nationalMap-map')
   end
 
 end
