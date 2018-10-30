@@ -7,7 +7,8 @@ class FindAPark::Scraper
 
   def self.states_for_days
     @states = self.whole_page.css('form#simpleStateForm').text
-    @states_array = @states.split('\\')
+    @states_array = @states.split("\n")
+    @states_array.slice!(0..3)
     @states_array
   end
 
