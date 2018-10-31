@@ -9,27 +9,23 @@ class FindAPark::CLI
     bye
   end
 
-  def lists_states
+  def self.lists_states
     puts "We will show parks by state."
-    @state = FindAPark::State.all
+      states = FindAPark::State.all_the_states_array
+      states.each_with_index do |state, idx|
+      puts "#{idx + 1}." "#{state}"
+    end
   end
 
-  def user_selection
-    input = nil
-    while input != "exit"
-      puts "Please enter the number of the state to get more info, 'states' to see the list again or type 'exit' to quit"
-      input = gets.strip.downcase
-      case input
-      when "1"
-        puts "Parks within that particular state"
-      when "2"
-        puts "Parks within that other particular state"
-      when "states"
-        lists_states
-      else
-        puts "Didn't quite understand that"
-      end
+  def valid_input?
+    input.include?(1..56)
     end
+
+  def self.user_selection
+    input = nil
+      puts "Please enter the number of the state to get more info, 'states' to see the list again or type 'exit' to quit"
+      input = gets.strip.downcase.to_i
+        FindAPark::State.all_the_states_array[input - 1]
   end
 
   def bye
