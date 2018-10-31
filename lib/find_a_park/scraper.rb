@@ -29,36 +29,15 @@ class FindAPark::Scraper
   end
 
   def self.scrape_states  #<div id="nationalMap-map">
-    self.whole_page.css('div#nationalMap-map') #scrapes from page to specific form
+    self.whole_page.css('div#nationalMap-map')
+  end
+
+  def self.make_states
+    scrape_states
   end
 
 
-
-
 end
-
-#     @states_array = @states.split("\n") #separates states and puts into array
-#     @states_array.slice!(0..3) #removes unwanted data
-#     @states_array.each_with_index do |state, idx| #iterates and puts out states with numbers
-#       puts "#{idx + 1}." "#{state}"
-#   end
-# end
-
-
-#
-
-#
-#   def make_restaurants
-#     scrape_restaurants_index.each do |r|
-#       WorldsBestRestaurants::Restaurant.new_from_index_page(r)
-#     end
-#   end
-# end
-
-#each state is here:
-#<div id="nationalMap-map">
-#<map name="Map" id="Map">
-#<area shape="rect" alt="Hawaii" coords="171,307,251,367" href="/state/hi/index.htm">
 
 #each state is here:
 #<div id="nationalMap-map">

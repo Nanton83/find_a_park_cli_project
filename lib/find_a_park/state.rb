@@ -4,7 +4,7 @@ class FindAPark::State
 
   attr_accessor :name
 
-  @@all = []
+  @@all = [] # [<State @name = "Alabama">]
 
     def initialize(name=nil)
       @name = name
@@ -15,9 +15,18 @@ class FindAPark::State
       @@all
     end
 
-    def self.new_state(state_info)
-      self.new
+    def self.new_state
+      @states = FindAPark::Scraper.make_states.css('form#simpleStateForm').text
+      @states_array = @states.split("\n")
+      @states_array.slice!(0..3)
+      @states_array
+    end
 
+    def self.create_states
+      self.new_state.each do |name|
+        #instantiate new State instances here
+        self.new(name)
+      end
     end
 
 end
