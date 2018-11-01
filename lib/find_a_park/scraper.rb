@@ -1,4 +1,4 @@
-
+require 'pry'
 # class FindAPark::Scraper
 #
 # This is code that works to scrape state name and print in a list
@@ -26,14 +26,15 @@ class FindAPark::Scraper
 
   def self.whole_page
     Nokogiri::HTML(open("https://www.nps.gov/findapark/index.htm"))
+    binding.pry
   end
 
   def self.scrape_states  #<div id="nationalMap-map">
     self.whole_page.css('div#nationalMap-map')
   end
 
-  def self.make_states
-    scrape_states
+  def self.scrape_parks
+    self.whole_page.css()
   end
 
 

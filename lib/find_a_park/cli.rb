@@ -17,7 +17,7 @@ class FindAPark::CLI
     end
   end
 
-  def valid_input?
+  def valid_input?(input)
     input.include?(1..56)
     end
 
@@ -25,7 +25,8 @@ class FindAPark::CLI
     input = nil
       puts "Please enter the number of the state to get more info, 'states' to see the list again or type 'exit' to quit"
       input = gets.strip.downcase.to_i
-        FindAPark::State.all_the_states_list[input - 1]
+        puts FindAPark::State.all_the_states_list[input - 1]
+
   end
 
   def bye
