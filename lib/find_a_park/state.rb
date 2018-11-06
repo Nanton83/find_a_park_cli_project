@@ -16,7 +16,7 @@ class FindAPark::State
     end
 
     def self.all_the_states_list
-      @states = FindAPark::Scraper.make_states.css('form#simpleStateForm').text
+      @states = FindAPark::Scraper.scrape_states.css('form#simpleStateForm').text
       @states_array = @states.split("\n")
       @states_array.slice!(0..3)
       @states_array
