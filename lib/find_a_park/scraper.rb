@@ -4,17 +4,18 @@ require 'pry'
 class FindAPark::Scraper
 
   def self.scraped_data
-    doc = Nokogiri::HTML(open("https://bestmapsever.com/pages/united-states-national-parks-list"))
+    doc = Nokogiri::HTML(open("https://www.afi.com/100Years/movies.aspx"))
     doc
   end
 
-  def self.parks
-    self.scraped_data.css('.lalign').text
+  def self.movie_title
+    @titles = self.scraped_data.css('.filmTitle').text.split("\n")
+    @titles.map do |title|
+      title.strip
+    end
   end
 
-  def self.scrape_parks
-    self.states_and_parks.css('p').text
-  end
+
 
 
 end
