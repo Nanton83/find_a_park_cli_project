@@ -3,14 +3,14 @@ require 'pry'
 
 class FindAPark::Scraper
 
-  def self.whole_page
-    Nokogiri::HTML(open("https://state.1keydata.com/national-parks-by-state.php"))
+  def self.states_and_parks
+    doc = Nokogiri::HTML(open("http://listofusnationalparks.com/national-parks-list-by-state/"))
+    doc.css('entry-content')
+    doc
   end
 
-  def self.scrape_states_and_parks
-    self.whole_page.css('.content3')
-    binding.pry
-
+  def self.scraped_states
+    self.states_and_parks.css('h2').text
   end
 
   def self.scrape_parks
