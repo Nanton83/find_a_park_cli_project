@@ -3,22 +3,19 @@ require 'pry'
 
 class FindAPark::Scraper
 
-  def self.states_and_parks
-    doc = Nokogiri::HTML(open("http://listofusnationalparks.com/national-parks-list-by-state/"))
-    doc.css('entry-content')
-    doc
+  def self.entry_content
+    doc = Nokogiri::HTML(open("https://www.nationalparked.com/list-of-national-parks"))
+    doc.css('.entry-content')
   end
 
-  def self.scraped_states
-    self.states_and_parks.css('h2').text
+  def self.states
+  @states = self.entry_content.css('h3').text.split(' ')
+  @states
   end
 
   def self.scrape_parks
-    self.whole_page.css()
+    self.states_and_parks.css('p').text
   end
 
 
 end
-# page = Nokogiri::HTML(open(PAGE_URL))
-# news_links = page.css("a").select{|link| link['data-category'] == "news"}
-# news_links.each{|link| puts link['href'] }
