@@ -3,14 +3,13 @@ require 'pry'
 
 class FindAPark::Scraper
 
-  def self.entry_content
-    doc = Nokogiri::HTML(open("https://www.nationalparked.com/list-of-national-parks"))
-    doc.css('.entry-content')
+  def self.scraped_data
+    doc = Nokogiri::HTML(open("https://bestmapsever.com/pages/united-states-national-parks-list"))
+    doc
   end
 
-  def self.states
-  @states = self.entry_content.css('h3').text.split(' ')
-  @states
+  def self.parks
+    self.scraped_data.css('.lalign').text
   end
 
   def self.scrape_parks
