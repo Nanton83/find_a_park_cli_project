@@ -1,6 +1,6 @@
 
 
-class FindAPark::State
+class FindAPark::Movie
 
   attr_accessor :name
 
@@ -15,19 +15,11 @@ class FindAPark::State
       @@all
     end
 
-    def self.all_the_states_list
-      @states = FindAPark::Scraper.scrape_states.css('form#simpleStateForm').text
-      @states_array = @states.split("\n")
-      @states_array.slice!(0..3)
-      @states_array
+    def self.all_the_movies
+
     end
 
-    def self.create_states
-      self.new_state.each do |name|
-        #instantiate new State instances here
-        self.new(name)
-      end
-    end
+  
 
 end
 # def self.new_from_index_page(r)

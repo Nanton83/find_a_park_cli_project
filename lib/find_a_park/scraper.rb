@@ -11,7 +11,8 @@ class FindAPark::Scraper
   def self.movie_title
     @titles = self.scraped_data.css('.filmTitle').text.split("\n")
     @titles.map do |title|
-      title.strip
+      movie = title.strip
+      movie
     end
   end
 
